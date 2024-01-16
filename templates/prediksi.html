@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}" />
+    <title>Prediksi</title>
+  </head>
+  <body>
+    <h1>Prediksi</h1>
+    <form method="POST" action="/prediksi">
+      <label for="start_year">Start Year:</label>
+      <select id="start_year" name="start_year">
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+      </select>
+      <label for="start_month">Start Month:</label>
+      <select id="start_month" name="start_month">
+        <option value="1">januari</option>
+        <option value="2">februari</option>
+        <option value="3">maret</option>
+        <option value="4">april</option>
+        <option value="5">mei</option>
+        <option value="6">juni</option>
+        <option value="7">juli</option>
+        <option value="8">agustus</option>
+        <option value="9">september</option>
+        <option value="10">oktober</option>
+        <option value="11">november</option>
+        <option value="12">desember</option>
+      </select>
+      <br />
+      <label for="end_year">End Year:</label>
+      <select id="end_year" name="end_year">
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+      </select>
+      <label for="end_month">End Month:</label>
+      <select id="end_month" name="end_month">
+        <option value="1">januari</option>
+        <option value="2">februari</option>
+        <option value="3">maret</option>
+        <option value="4">april</option>
+        <option value="5">mei</option>
+        <option value="6">juni</option>
+        <option value="7">juli</option>
+        <option value="8">agustus</option>
+        <option value="9">september</option>
+        <option value="10">oktober</option>
+        <option value="11">november</option>
+        <option value="12">desember</option>
+      </select>
+      <br />
+      <label for="menu">Menu:</label>
+      <select id="menu" name="menu">
+        <option value="aren">Aren</option>
+        <option value="choco">Choco</option>
+        <option value="taro">Taro</option>
+        <option value="redvelvet">Redvelvet</option>
+        <option value="avocado">Avocado</option>
+      </select>
+      <br />
+      <input type="submit" value="Prediksi" />
+    </form>
+    <br />
+    <h2>Hasil Prediksi:</h2>
+    <p>{{ hasil_prediksi }}</p>  <!-- Display the prediction result here -->
+    {% if plot_data %}
+        <img src="data:image/png;base64,{{ plot_data }}" alt="ARIMA Predictions and Actual Data">
+    {% endif %}
+  </body>
+</html>
